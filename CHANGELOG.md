@@ -9,6 +9,28 @@
 Every release of this card, newest first. Each heading links to the release it
 came from, where the asset and the date are.
 
+## [v3.5.0](https://github.com/artem-sedykh/mini-climate-card/releases/tag/v3.5.0)
+
+Not released yet. This file is where the changes on master accumulate: a pull
+request that changes something a user can see adds its entry here, in the same
+commit as the change, so the release notes are written while the reasons are
+still fresh rather than reconstructed from a log afterwards.
+
+`scripts/build-changelog.mjs` skips a file whose version is ahead of
+`package.json`, so nothing here reaches `CHANGELOG.md` until the release is
+cut. The summary paragraph above is rewritten then, to say what the release
+turned out to be about.
+
+### Added
+
+- `layout: two-row`: the name and the target temperature, between a minus
+  and a plus, on one row; the hvac modes as a segmented bar and the fan mode
+  dropdown on the row under it.
+
+### Fixed
+
+### Documentation
+
 ## [v3.4.0](https://github.com/artem-sedykh/mini-climate-card/releases/tag/v3.4.0)
 
 One feature, and the documentation catching up with it.
