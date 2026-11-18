@@ -232,19 +232,29 @@ const style = css`
     width: calc(var(--mc-unit) * 0.75);
     height: calc(var(--mc-unit) * 0.75);
   }
-  /* layout: two-row */
+  /* layout: two-row. Spacing and the name's type follow Home Assistant's
+     tile card, so the card sits in a column of tiles without standing out:
+     10px of padding, a 36px icon, a 10px gap and the tile's primary text. */
   .--two-row .mc-climate__core {
     align-items: center;
     padding-right: 0;
   }
   .--two-row .entity__icon {
     align-self: center;
+    height: calc(var(--mc-unit) * .9);
+    width: calc(var(--mc-unit) * .9);
+    min-width: calc(var(--mc-unit) * .9);
+    line-height: calc(var(--mc-unit) * .9);
+    margin-right: 0;
+  }
+  .--two-row .entity__info {
+    margin-left: 10px;
   }
   .tr__body {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--mc-unit) * .2);
-    padding-bottom: 16px;
+    gap: calc(var(--mc-unit) * .15);
+    padding-bottom: 10px;
   }
   .--group .tr__body {
     padding-bottom: 8px;
@@ -260,6 +270,10 @@ const style = css`
   .tr__name {
     flex: 1 1 auto;
     min-width: 0;
+    font-size: var(--ha-font-size-m, 14px);
+    font-weight: var(--mini-climate-name-font-weight, var(--ha-font-weight-medium, 500));
+    line-height: var(--ha-line-height-normal, 20px);
+    letter-spacing: 0.1px;
   }
   .--more-info .tr__name {
     cursor: pointer;
@@ -273,7 +287,7 @@ const style = css`
   }
   ha-card.--initial .--two-row.mc-climate,
   ha-card .--two-row.mc-climate {
-    padding: 16px 16px 0 16px;
+    padding: 10px 10px 0 10px;
   }
   ha-card.--group .--two-row.mc-climate {
     padding: 8px 0 0 0;
