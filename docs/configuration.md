@@ -246,6 +246,30 @@ and `change_action` all apply. The fan mode dropdown follows `fan_mode: hide`
 and `fan_mode: source`. The line under the name (`secondary_info`) is not drawn
 in this layout. `target_temperature: icons` still overrides the minus and plus.
 
+To leave a mode out of the bar, either filter it out of the modes the entity
+reports, or list only the ones to show (quote `'off'`: unquoted, YAML reads it
+as a boolean):
+
+```yaml
+# everything the entity reports, except heat_cool
+hvac_mode:
+  source:
+    __filter: >
+      (source) => source.filter(s => s.id !== 'heat_cool')
+
+# only these, in this order
+hvac_mode:
+  source:
+    'off': Off
+    cool: Cool
+    dry: Dry
+    fan_only: Fan
+```
+
+In this layout the name follows Home Assistant's tile card: the theme's
+medium font size and weight. `--mini-climate-name-font-weight` still
+overrides the weight.
+
 The bar can be themed with `--mini-climate-mode-bar-background`,
 `--mini-climate-mode-bar-selected-color` and
 `--mini-climate-mode-bar-selected-text-color`.

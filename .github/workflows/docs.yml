@@ -61,15 +61,18 @@ jobs:
       - name: Build
         run: mkdocs build --strict
 
+      # Published only from the upstream repository. A fork usually has no
+      # GitHub Pages site, and the deploy then fails with a 404 although the
+      # build above passed; the strict build still runs everywhere.
       - name: Upload the site
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' && github.repository == 'artem-sedykh/mini-climate-card'
         uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
   deploy:
     name: Deploy
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' && github.repository == 'artem-sedykh/mini-climate-card'
     needs: build
     runs-on: ubuntu-latest
     # Only this job gets to write, and only Pages. The build above stays
