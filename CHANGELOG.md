@@ -9,6 +9,23 @@
 Every release of this card, newest first. Each heading links to the release it
 came from, where the asset and the date are.
 
+## [v3.6.0](https://github.com/artem-sedykh/mini-climate-card/releases/tag/v3.6.0)
+
+Not released yet. This file is where the changes on master accumulate: a pull
+request that changes something a user can see adds its entry here, in the same
+commit as the change, so the release notes are written while the reasons are
+still fresh rather than reconstructed from a log afterwards.
+
+### Changed
+
+- `layout: two-row` follows the spacing of Home Assistant's tile card (10px
+  padding, a 36px icon, a 10px gap) and draws the name in the tile's type, so
+  it lines up with the tiles around it.
+
+### Documentation
+
+- How to leave hvac modes out of the `two-row` mode bar.
+
 ## [v3.5.0](https://github.com/artem-sedykh/mini-climate-card/releases/tag/v3.5.0)
 
 Not released yet. This file is where the changes on master accumulate: a pull
